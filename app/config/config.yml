@@ -68,3 +68,13 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+monolog:
+    channels: ['benchmark']
+    handlers:
+        benchmark:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%_benchmark.log"
+            channels: ["benchmark"]
+        main:
+            channels: ["!benchmark"]

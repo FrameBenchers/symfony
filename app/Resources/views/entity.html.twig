@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block header %}
+    <!-- Page Header -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        <span class="meta">Posted by <a href="#">{{ post.author.username }}</a> on {{ post.createdDate|date('d-m-Y') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {{ post.content|e }}
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="render-time" id="rendertime"></div>
+{% endblock %}
+
+{% block end %}
+    {{ logTemplateEnded(key) }}
+{% endblock %}
